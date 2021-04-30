@@ -4,7 +4,7 @@ namespace ClassIntro
 {
     class Program
     {
-        static void Main(string[] args)
+        static void test (string[] args)
         {
             string adi = "Engin";
             int yas = 36;
@@ -38,7 +38,7 @@ namespace ClassIntro
 
             foreach (var kurs in kurslar)
             {
-                Console.WriteLine(kurs.KursAdi + " : " + kurs.Egitmen);
+                //Console.WriteLine(kurs.KursAdi + " : " + kurs.Egitmen);
             }
 
 
