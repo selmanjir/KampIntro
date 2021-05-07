@@ -11,11 +11,11 @@ namespace OOP1
         {
             Console.WriteLine(product.ProductName + " eklendi.");
         }
-
-        public void Update(Product product)
+        
+        public void Update (Product product)
         {
             Console.WriteLine(product.ProductName + " güncellendi.");
         }
-
+        
     }
 }
