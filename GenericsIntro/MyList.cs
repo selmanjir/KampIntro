@@ -7,34 +7,21 @@ namespace GenericsIntro
     class MyList<T>
     {
         T[] items;
-        //constructor
         public MyList()
         {
             items = new T[0];
         }
-        public void Add(T item)
+        public void Add (T item)
         {
-            T[] tempArray = items;
-            items = new T[items.Length+1];
-            for (int i = 0; i < tempArray.Length; i++)
+            T[] tempItem = items;
+            items = new T[items.Length + 1];
+            for (int i = 0; i < tempItem.Length; i++)
             {
-                items[i] = tempArray[i];
+                tempItem[i] = items[i];
             }
-
             items[items.Length - 1] = item;
-
         }
-
-        public int Length
-        {
-            get { return items.Length; }
-        }
-
-        public T[] Items
-        {
-            get { return items; }
-        }
-
-
     }
+        
+    
 }
