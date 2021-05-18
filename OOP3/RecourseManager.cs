@@ -4,26 +4,28 @@ using System.Text;
 
 namespace OOP3
 {
-    class BasvuruManager
+    class RecourseManager
     {
         //Method injection
-        public void BasvuruYap(IKrediManager krediManager, List<ILoggerService> loggerServices)
+        public void ToApply (ICreditManager creditManager,List<ILoggerService> loggerServices)
         {
             //Başvuran bilgilerini değerlendirme
             //
-            krediManager.Hesapla();
+            creditManager.Calculate();
+
             foreach (var loggerService in loggerServices)
             {
                 loggerService.Log();
             }
         }
-
-        public void KrediOnBilgilendirmesiYap(List<IKrediManager> krediler)
+        public void CreditPreNotification(List<ICreditManager> credits)
         {
-            foreach (var kredi in krediler)
+            foreach (var credit in credits)
             {
-                kredi.Hesapla();
+                credit.Calculate();
             }
         }
+
+        
     }
 }

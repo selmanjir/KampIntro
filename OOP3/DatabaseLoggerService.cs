@@ -8,7 +8,7 @@ namespace OOP3
     {
         public void Log()
         {
-            Console.WriteLine("Veritabanına loglandı");
+            Console.WriteLine("Veritabanın loglandı.");
         }
     }
 }

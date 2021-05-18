@@ -7,23 +7,32 @@ namespace OOP3
     {
         static void Main(string[] args)
         {
-            IKrediManager ihtiyacKrediManager = new IhtiyacKrediManager();
-            IKrediManager tasitKrediManager = new TasitKrediManager();
-            IKrediManager konutKrediManager = new KonutKrediManager();
+            ICreditManager personalFinanceCreditManager = new PersonalFinanceCreditManager();
+            ICreditManager transportCreditManager = new TransportCreditManager();
+            ICreditManager mortgageLoanCreditManager = new MortgageLoanCreditManager();
+            ICreditManager artisanLoanCreditManager = new ArtisanLoanCreditManager();
 
             ILoggerService databaseLoggerService = new DatabaseLoggerService();
             ILoggerService fileLoggerService = new FileLoggerService();
+            ILoggerService smsloggerService = new SmsLoggerService();
 
-            List<ILoggerService> loggers = new List<ILoggerService> {new SmsLoggerService(), new FileLoggerService() };
+            List<ILoggerService> logger = new List<ILoggerService>() { databaseLoggerService, smsloggerService};
 
+            RecourseManager recourseManager = new RecourseManager();
+            recourseManager.ToApply(transportCreditManager,new List<ILoggerService> {fileLoggerService });
+            Console.WriteLine("------------------------------------");
+            recourseManager.ToApply(artisanLoanCreditManager,logger);
 
-            BasvuruManager basvuruManager = new BasvuruManager();
-            basvuruManager.BasvuruYap(new EsnafKredisiManager(), loggers);
-
-            List<IKrediManager> krediler = new List<IKrediManager>() {ihtiyacKrediManager, tasitKrediManager };
-
-            //basvuruManager.KrediOnBilgilendirmesiYap(krediler);
-
+            List<ICreditManager> credits = new List<ICreditManager>() {personalFinanceCreditManager,transportCreditManager };
+            
+            //recourseManager.CreditPreNotification(credits);
         }
     }
 }
+// ToApply = Başvurmak
+// ArtisanLoan = Esnaf Kredisi
+// Recourse = Başvuru
+// Mortgage Loan = Konut Kredisi
+// Personel Finance credit = İhtiyaç Kredisi
+// Credit Pre-Notification = Kredi ön bildirimi
+// Get Printouts = Çıktı Alın

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace OOP3
 {
@@ -6,7 +8,7 @@ namespace OOP3
     {
         public void Log()
         {
-            Console.WriteLine("Dosyaya loglandı");
+            Console.WriteLine("Dosyaya loglandı.");
         }
     }
 }
